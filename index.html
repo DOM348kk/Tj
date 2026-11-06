@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Welcome to Bright Future School. Discover our academics, admissions, and school community.">
+    <title>Titusjane High School</title>
+
+    <style>
+        /* COLOURS: change these values to change the website theme. */
+        :root {
+            --dark-blue: #123D6A;
+            --blue: #246BCE;
+            --light-blue: #F0F6FF;
+            --white: #FFFFFF;
+            --text: #243247;
+            --muted: #5B6878;
+            --border: #D7E3F3;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--white);
+        }
+
+        .container {
+            width: min(1080px, 92%);
+            margin: 0 auto;
+        }
+
+        /* HEADER */
+        .site-header {
+            padding: 20px 0;
+            color: var(--white);
+            background: var(--dark-blue);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .school-mark {
+            display: grid;
+            place-items: center;
+            width: 48px;
+            height: 48px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            background: var(--white);
+            color: var(--dark-blue);
+            font-weight: bold;
+        }
+
+        .school-name {
+            margin: 0;
+            font-size: clamp(1.35rem, 3vw, 2rem);
+            line-height: 1.2;
+        }
+
+        .school-motto {
+            margin: 5px 0 0;
+            color: #DCEAFF;
+        }
+
+        /* NAVIGATION */
+        .navigation {
+            background: var(--blue);
+        }
+
+        .navigation-inner {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 5px;
+            padding: 8px 0;
+        }
+
+        .navigation a {
+            padding: 9px 13px;
+            border-radius: 5px;
+            color: var(--white);
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .navigation a:hover,
+        .navigation a:focus {
+            background: var(--dark-blue);
+        }
+
+        /* WELCOME AREA */
+        .hero {
+            padding: 48px 0;
+            background: linear-gradient(135deg, var(--light-blue), #FFFFFF);
+            text-align: center;
+        }
+
+        .hero h2 {
+            margin: 0 auto 12px;
+            color: var(--dark-blue);
+            font-size: clamp(1.8rem, 4vw, 2.7rem);
+            line-height: 1.2;
+        }
+
+        .hero-intro {
+            max-width: 680px;
+            margin: 0 auto 22px;
+            color: var(--muted);
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 18px;
+            border: 2px solid var(--blue);
+            border-radius: 6px;
+            background: var(--blue);
+            color: var(--white);
+            font: inherit;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .button:hover,
+        .button:focus {
+            border-color: var(--dark-blue);
+            background: var(--dark-blue);
+        }
+
+        .button-outline {
+            background: transparent;
+            color: var(--blue);
+        }
+
+        .button-outline:hover,
+        .button-outline:focus {
+            color: var(--white);
+        }
+
+
+        /* GENERAL SECTIONS */
+        .section {
+            padding: 52px 0;
+            scroll-margin-top: 18px;
+        }
+
+        .section-light {
+            background: var(--light-blue);
+        }
+
+        .section-heading {
+            margin: 0 0 10px;
+            color: var(--dark-blue);
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            text-align: center;
+        }
+
+        .section-intro {
+            max-width: 700px;
+            margin: 0 auto 28px;
+            color: var(--muted);
+            text-align: center;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            align-items: start;
+        }
+
+        .about-grid h3 {
+            margin-top: 0;
+            color: var(--dark-blue);
+        }
+
+        .about-panel {
+            padding: 22px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: var(--light-blue);
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .card {
+            padding: 22px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: var(--white);
+        }
+
+        .card-icon {
+            font-size: 1.8rem;
+        }
+
+        .card h3 {
+            margin: 8px 0;
+            color: var(--dark-blue);
+        }
+
+        .card p {
+            margin-bottom: 0;
+            color: var(--muted);
+        }
+
+        /* CONTACT DETAILS AND FORM */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 22px;
+        }
+
+        .contact-panel,
+        .contact-form {
+            padding: 22px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: var(--white);
+        }
+
+        .contact-panel h3,
+        .contact-form h3 {
+            margin-top: 0;
+            color: var(--dark-blue);
+        }
+
+        .form-field {
+            margin-bottom: 14px;
+        }
+
+        .form-field label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-field input,
+        .form-field textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #AEBFD5;
+            border-radius: 5px;
+            color: var(--text);
+            font: inherit;
+        }
+
+        .form-field input:focus,
+        .form-field textarea:focus {
+            outline: 3px solid #C6DDFE;
+            border-color: var(--blue);
+        }
+
+        .form-message {
+            color: var(--dark-blue);
+            font-weight: bold;
+        }
+
+        /* FOOTER */
+        .site-footer {
+            padding: 22px 0;
+            background: var();
+            color: var(--white);
+            text-align: center;
+        }
+
+        .site-footer p {
+            margin: 4px 0;
+        }
+
+        /* PHONE AND SMALL SCREEN LAYOUT */
+        @media (max-width: 700px) {
+            .hero {
+                padding: 38px 0;
+            }
+
+            .about-grid,
+            .cards,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 38px 0;
+            }
+
+            .navigation a {
+                padding: 8px 9px;
+                font-size: 0.92rem;
+            }
+        }
+
+        /* Respect the visitor's reduced-motion preference. */
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+        }
+        * {
+  box-sizing: border-box;
+}
+
+:root {
+  --navy: #102f63;
+  --blue: #0867c9;
+  --pale-blue: #eaf3ff;
+  --text: #17365d;
+  --muted: #64748b;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background: #f4f8ff;
+}
+
+/* HEADER */
+.site-header {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 14px 4%;
+  background: #fff;
+  box-shadow: 0 3px 16px rgba(0, 30, 80, 0.12);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  color: var(--navy);
+  text-decoration: none;
+}
+
+.brand img {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+}
+
+.brand strong {
+  display: block;
+  font-size: clamp(15px, 1.4vw, 21px);
+}
+
+.brand small {
+  display: block;
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 1.7px;
+  text-transform: uppercase;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: clamp(12px, 1.8vw, 25px);
+}
+
+.main-nav a {
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.2s ease;
+} 
+.menu-toggle {
+  display: none;
+  padding: 8px 12px;
+  color: var(--navy);
+  background: var(--pale-blue);
+  border: 1px solid #c9ddfa;
+  border-radius: 7px;
+  font-size: 24px;
+  cursor: pointer;
+}
+ * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #eef5ff;
+        }
+
+        /* Main full-screen section */
+        .ict-section {
+            min-height: 100vh;
+            width: 100%;
+            padding: 25px;
+            background-color: #eef5ff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* ICT heading box */
+        .ict-box {
+            width: 100%;
+            min-height: 260px;
+            background-color: white;
+            border: 2px solid #cbdfff;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .ict-box h1 {
+            color: #164879;
+            font-size: 36px;
+            margin: 0 0 15px;
+        }
+
+        .ict-box p {
+            color: #64748b;
+            font-size: 23px;
+            font-weight: bold;
+            line-height: 1.5;
+            max-width: 900px;
+            margin: 0;
+        }
+
+        /* Three images */
+        .image-container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            width: 100%;
+            margin-top: 30px;
+        }
+
+        .image-container img {
+            width: calc(33.333% - 17px);
+            height: 300px;
+            object-fit: cover;
+            border: 4px solid #87CEEB;
+            border-radius: 12px;
+        }
+
+        /* Smaller screens */
+        @media (max-width: 700px) {
+            .ict-box h1 {
+                font-size: 28px;
+            }
+
+            .ict-box p {
+                font-size: 18px;
+            }
+
+            .image-container {
+                flex-direction: column;
+            }
+
+            .image-container img {
+                width: 100%;
+                height: 250px;
+            }
+        }
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 12px;
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+}
+
+/* MAIN SECTION */
+.features-section {
+    background: #eaf5ff;
+    padding: 30px;
+    border-radius: 18px;
+    margin: 20px 0;
+}
+
+/* SECTION HEADING */
+.features-heading {
+    margin-bottom: 25px;
+}
+
+.features-heading h2 {
+    color: #0754a6;
+    font-size: 26px;
+    margin-bottom: 8px;
+}
+
+.features-heading p {
+    color: #555;
+    font-size: 15px;
+}
+
+/* CARDS CONTAINER */
+.features-container {
+    display: flex;
+    gap: 30px;
+    overflow-x: auto;
+    padding: 10px 5px 20px;
+    scroll-behavior: smooth;
+}
+
+/* INDIVIDUAL CARD */
+.feature-card {
+    min-width: 280px;
+    width: 280px;
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    flex-shrink: 0;
+
+    box-shadow: 0 5px 18px rgba(0,0,0,0.10);
+
+    transition: transform 0.3s ease;
+}
+
+/* CARD HOVER EFFECT */
+.feature-card:hover {
+    transform: translateY(-8px);
+}
+
+/* CARD IMAGE */
+.feature-card img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    display: block;
+}
+
+/* CARD TEXT */
+.feature-content {
+    padding: 18px;
+}
+
+/* SMALL CATEGORY TEXT */
+.feature-content span {
+    color: #0875db;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* CARD HEADING */
+.feature-content h3 {
+    color: #123c69;
+    font-size: 19px;
+    margin: 10px 0;
+}
+
+/* CARD DESCRIPTION */
+.feature-content p {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 65px;
+}
+
+/* CARD LINK */
+.feature-content a {
+    display: inline-block;
+    color: #0875db;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.feature-content a:hover {
+    color: #003b80;
+}
+
+/* SCROLLBAR */
+.features-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.features-container::-webkit-scrollbar-thumb {
+    background: #60a5fa;
+    border-radius: 10px;
+}
+
+.features-container::-webkit-scrollbar-track {
+    background: #dbeafe;
+    border-radius: 10px;
+}
+
+/* MOBILE SCREEN */
+@media (max-width: 600px) {
+
+    .features-section {
+        padding: 15px;
+    }
+
+    .features-heading h2 {
+        font-size: 22px;
+    }
+
+    .feature-card {
+        min-width: 240px;
+        width: 240px;
+    }
+
+    .feature-card img {
+        height: 190px;
+    }
+
+}
+html {
+    scroll-behavior: smooth;
+}
+
+.features-heading {
+    text-align: center;
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+.features-heading h2 {
+    color: #0754a6;
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.features-heading p {
+    color: #555;
+    font-size: 15px;
+    text-align: center;
+}
+
+
+
+
+    </style>
+</head>
+      
+<body>
+    <header class="site-header">
+    <a class="brand" href="index.html">
+      <img src="c.png" alt="Titusjane High School logo"
+           onerror="this.hidden=true">
+      <span>
+        <strong>Titusjane High School</strong>
+        <small>Either the best or nothing</small>
+      </span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" type="button"
+            aria-expanded="false" aria-controls="mainNav" aria-label="Open menu">☰</button>
+
+    <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="#academics">Academics</a>
+      <a href="gallery.html" aria-current="page">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+  </header>
+     
+<section class="carousel-section">
+
+    <div class="carousel">
+
+        <div class="carousel-track">
+
+<link rel="stylesheet" href="style.css">
+
+            <img src="jm.jpg" class="carousel-image">
+            <img src="2k.jpg" class="carousel-image">
+            <img src="3k.jpg" class="carousel-image">
+            <img src="pk.jpg" class="carousel-image">
+            <img src="mk.jpg" class="carousel-image">
+
+        </div>
+
+    </div>
+
+    <div class="carousel-buttons">
+        <button id="prev">⟵ Previous</button>
+        <button id="next">Next ⟶</button>
+    </div>
+
+</section>
+
+
+<script src="script.js"></script>
+
+<section id="academics">
+<!-- ACADEMICS -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My School Website</title>
+
+    <!-- Connect CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<section class="features-section">
+
+    <div class="features-heading">
+        <h1>Discover Our School</h1>
+       <h2><p>Explore the opportunities we offer our students.</p></h2>
+    </div>
+
+    <div class="features-container">
+
+        <!-- CARD 1 -->
+        <div class="feature-card">
+            <img src="8k.jpg" alt="Classroom">
+
+            <div class="feature-content">
+                
+                <h2>Modern Classrooms</h2>
+                <h3><p>Enjoy a comfortable environment designed for learning.</p></h3>
+        
+            </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="feature-card">
+            <img src="ok.jpg" alt="Library">
+
+            <div class="feature-content">
+            
+                <h2>Our Library</h2>
+                <h3><p>Discover knowledge through books and research.</p></h3>
+            </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="feature-card">
+            <img src="lk.jpg" alt="Science Laboratory">
+
+            <div class="feature-content">
+            
+                <h2>Science Laboratory</h2>
+                <h3><p>Experience practical science and exciting experiments.</p></h3>
+                
+            </div>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="feature-card">
+            <img src="PPK.jpg" alt="Sports">
+
+            <div class="feature-content">
+                
+                <h2>Sports And Games</h2>
+                <h3><p>Build teamwork and confidence through sports.</p></h3>
+                
+            </div>
+        </div>
+
+        <!-- CARD 5 -->
+        <div class="feature-card">
+            <img src="HH.jpg" alt="Computer Room">
+
+            <div class="feature-content">
+                
+                <h2>Computer Studies</h2>
+               <h3><p>Develop important digital and computer skills.</p></h3>
+            
+            </div>
+        </div>
+
+        <!-- CARD 6 -->
+        <div class="feature-card">
+            <img src="7k.jpg" alt="Our Teachers">
+
+            <div class="feature-content">
+            
+                <h2>Our Teachers</h2>
+                <h3><p>Meet our dedicated and experienced teachers.</p></h3>
+                
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+</body>
+</html>
+
+
+
+</section>
+  <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; <span id="year">2026</span> Bright Future School. All rights reserved.</p>
+            <p>Learn Today, Lead Tomorrow.</p>
+        </div>
+    </footer>
+
+
+</body>
+</html>
+
+
+
